@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "2"
+    deployment.kubernetes.io/max-replicas: "3"
+    deployment.kubernetes.io/revision: "3"
+    deployment.kubernetes.io/revision-history: "1"
+    meta.helm.sh/release-name: polaris
+    meta.helm.sh/release-namespace: polaris
+  creationTimestamp: "2022-08-23T12:39:13Z"
+  generation: 1
+  labels:
+    app: polaris
+    app.kubernetes.io/instance: polaris
+    app.kubernetes.io/name: polaris
+    component: dashboard
+    pod-template-hash: 7b649fb55c
+  name: polaris-dashboard-7b649fb55c
+  namespace: polaris
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: polaris-dashboard
+    uid: 806abf06-ba2f-40ae-ab10-60157b2ec307
+  resourceVersion: "17054"
+  uid: b8d93f81-b9e8-40cf-b0d4-f8ffdd0825af
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: polaris
+      app.kubernetes.io/instance: polaris
+      app.kubernetes.io/name: polaris
+      component: dashboard
+      pod-template-hash: 7b649fb55c
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: polaris
+        app.kubernetes.io/instance: polaris
+        app.kubernetes.io/name: polaris
+        component: dashboard
+        pod-template-hash: 7b649fb55c
+    spec:
+      containers:
+      - command:
+        - polaris
+        - dashboard
+        - --port
+        - "8080"
+        image: quay.io/fairwinds/polaris:7.0
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: dashboard
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 20
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 150m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: polaris
+      serviceAccountName: polaris
+      terminationGracePeriodSeconds: 30
+status:
+  fullyLabeledReplicas: 2
+  observedGeneration: 1
+  replicas: 2
