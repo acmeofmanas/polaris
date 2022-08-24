@@ -5,7 +5,6 @@ metadata:
     deployment.kubernetes.io/revision: "3"
     meta.helm.sh/release-name: polaris
     meta.helm.sh/release-namespace: polaris
-  creationTimestamp: "2022-08-23T12:39:13Z"
   generation: 3
   labels:
     app: polaris
@@ -19,8 +18,6 @@ metadata:
     helm.sh/chart: polaris-5.4.1
   name: polaris-dashboard
   namespace: polaris
-  resourceVersion: "17056"
-  uid: 806abf06-ba2f-40ae-ab10-60157b2ec307
 spec:
   progressDeadlineSeconds: 600
   replicas: 2
@@ -38,7 +35,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: polaris
         app.kubernetes.io/instance: polaris
@@ -101,21 +97,3 @@ spec:
       serviceAccount: polaris
       serviceAccountName: polaris
       terminationGracePeriodSeconds: 30
-status:
-  conditions:
-  - lastTransitionTime: "2022-08-23T12:39:13Z"
-    lastUpdateTime: "2022-08-23T12:39:13Z"
-    message: Deployment does not have minimum availability.
-    reason: MinimumReplicasUnavailable
-    status: "False"
-    type: Available
-  - lastTransitionTime: "2022-08-24T12:24:01Z"
-    lastUpdateTime: "2022-08-24T12:24:01Z"
-    message: ReplicaSet "polaris-dashboard-7b649fb55c" is progressing.
-    reason: ReplicaSetUpdated
-    status: "True"
-    type: Progressing
-  observedGeneration: 3
-  replicas: 3
-  unavailableReplicas: 3
-  updatedReplicas: 2

@@ -4,7 +4,6 @@ metadata:
   annotations:
     meta.helm.sh/release-name: polaris
     meta.helm.sh/release-namespace: polaris
-  creationTimestamp: "2022-08-23T12:39:13Z"
   labels:
     app: polaris
     app.kubernetes.io/component: dashboard
@@ -17,7 +16,6 @@ metadata:
   name: polaris-dashboard
   namespace: polaris
   resourceVersion: "11247"
-  uid: 3b4951e2-fa28-45c2-bc96-ad896166c4ca
 spec:
   clusterIP: 10.97.179.86
   clusterIPs:
@@ -38,5 +36,3 @@ spec:
     component: dashboard
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
