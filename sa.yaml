@@ -1,0 +1,33 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    creationTimestamp: "2022-08-24T16:21:39Z"
+    name: default
+    namespace: polaris
+    resourceVersion: "38723"
+    uid: 35f35b3d-cb27-4f73-9304-071d5c51103f
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: polaris
+      meta.helm.sh/release-namespace: polaris
+    creationTimestamp: "2022-08-24T16:21:39Z"
+    labels:
+      app: polaris
+      app.kubernetes.io/component: dashboard
+      app.kubernetes.io/instance: polaris
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: polaris
+      app.kubernetes.io/part-of: polaris
+      app.kubernetes.io/version: 5.4.1
+      helm.sh/chart: polaris-5.4.1
+    name: polaris
+    namespace: polaris
+    resourceVersion: "38726"
+    uid: 1c284910-1874-477c-be0a-a8fca09c494b
+kind: List
+metadata:
+  resourceVersion: ""

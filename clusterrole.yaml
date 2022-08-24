@@ -1,0 +1,32 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    meta.helm.sh/release-name: polaris
+    meta.helm.sh/release-namespace: polaris
+  creationTimestamp: "2022-08-23T12:39:13Z"
+  labels:
+    app: polaris
+    app.kubernetes.io/component: dashboard
+    app.kubernetes.io/instance: polaris
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: polaris
+    app.kubernetes.io/part-of: polaris
+    app.kubernetes.io/version: 5.4.1
+    helm.sh/chart: polaris-5.4.1
+  name: polaris
+  resourceVersion: "44333"
+  uid: c313a222-4982-4774-8dc2-026543708d99
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - '*'
+  verbs:
+  - '*'
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - '*'
+  verbs:
+  - '*'
